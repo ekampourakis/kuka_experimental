@@ -1,7 +1,7 @@
 <ROOT>
    <CONFIG>
-      <IP_NUMBER>192.168.1.101</IP_NUMBER>   <!-- IP-number of the external socket -->
-      <PORT>59152</PORT>                   <!-- Port-number of the external socket -->
+      <IP_NUMBER>192.168.1.10</IP_NUMBER>   <!-- IP-number of the external socket -->
+      <PORT>49152</PORT>                   <!-- Port-number of the external socket -->
       <SENTYPE>ImFree</SENTYPE>        <!-- The name of your system send in <Sen Type="" > -->
       <ONLYSEND>FALSE</ONLYSEND>       <!-- TRUE means the client don't expect answers. Do not send anything to robot -->
    </CONFIG>
@@ -49,17 +49,17 @@
          <ELEMENT TAG="Out.Ch02" TYPE="BOOL" INDX="8" HOLDON="1" />
          <ELEMENT TAG="Out.Ch03" TYPE="BOOL" INDX="9" HOLDON="1" />
          <ELEMENT TAG="Out.Ch04" TYPE="BOOL" INDX="10" HOLDON="1" />
-         <ELEMENT TAG="Out.Ch05" TYPE="BOOL" INDX="11" HOLDON="1" />  
-         <ELEMENT TAG="Out.Ch06" TYPE="BOOL" INDX="12" HOLDON="1" />  
+         <ELEMENT TAG="Out.Ch05" TYPE="BOOL" INDX="11" HOLDON="1" />
+         <ELEMENT TAG="Out.Ch06" TYPE="BOOL" INDX="12" HOLDON="1" />
          <ELEMENT TAG="Out.Ch07" TYPE="BOOL" INDX="13" HOLDON="1" />
-         <ELEMENT TAG="Out.Ch08" TYPE="BOOL" INDX="14" HOLDON="1" />  
-         <ELEMENT TAG="Out.Ch09" TYPE="BOOL" INDX="15" HOLDON="1" />  
-         <ELEMENT TAG="Out.Ch10" TYPE="BOOL" INDX="16" HOLDON="1" />  
-         <ELEMENT TAG="Out.Ch11" TYPE="BOOL" INDX="17" HOLDON="1" />  
-         <ELEMENT TAG="Out.Ch12" TYPE="BOOL" INDX="18" HOLDON="1" />  
-         <ELEMENT TAG="Out.Ch13" TYPE="BOOL" INDX="19" HOLDON="1" />  
+         <ELEMENT TAG="Out.Ch08" TYPE="BOOL" INDX="14" HOLDON="1" />
+         <ELEMENT TAG="Out.Ch09" TYPE="BOOL" INDX="15" HOLDON="1" />
+         <ELEMENT TAG="Out.Ch10" TYPE="BOOL" INDX="16" HOLDON="1" />
+         <ELEMENT TAG="Out.Ch11" TYPE="BOOL" INDX="17" HOLDON="1" />
+         <ELEMENT TAG="Out.Ch12" TYPE="BOOL" INDX="18" HOLDON="1" />
+         <ELEMENT TAG="Out.Ch13" TYPE="BOOL" INDX="19" HOLDON="1" />
          <ELEMENT TAG="Out.Ch14" TYPE="BOOL" INDX="20" HOLDON="1" />
-         <ELEMENT TAG="Out.Ch15" TYPE="BOOL" INDX="21" HOLDON="1" />         
+         <ELEMENT TAG="Out.Ch15" TYPE="BOOL" INDX="21" HOLDON="1" />
          <ELEMENT TAG="Out.Ch16" TYPE="BOOL" INDX="22" HOLDON="1" />
       </ELEMENTS>
    </RECEIVE>
