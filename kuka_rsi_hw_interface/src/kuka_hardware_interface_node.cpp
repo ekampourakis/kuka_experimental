@@ -49,9 +49,10 @@ int main(int argc, char** argv)
   spinner.start();
 
   ros::NodeHandle nh;
+  ros::NodeHandle r_nh("rsi");
 
   kuka_rsi_hw_interface::KukaHardwareInterface kuka_rsi_hw_interface;
-  kuka_rsi_hw_interface.configure();
+  kuka_rsi_hw_interface.init(nh, r_nh);
 
   // Set up timers
   ros::Time timestamp;

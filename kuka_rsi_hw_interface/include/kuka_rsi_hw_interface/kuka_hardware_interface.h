@@ -52,7 +52,8 @@
 // ros_control
 #include <realtime_tools/realtime_publisher.h>
 #include <controller_manager/controller_manager.h>
-#include <hardware_interface/posvel_command_interface.h>
+// #include <hardware_interface/posvel_command_interface.h>
+#include <hardware_interface/joint_command_interface.h>
 #include <hardware_interface/joint_state_interface.h>
 #include <hardware_interface/robot_hw.h>
 // #include <hardware_state_command_interfaces/digital_io_command_interface.h>
@@ -126,8 +127,8 @@ private:
 
   // Interfaces
   hardware_interface::JointStateInterface joint_state_interface_;
-  // hardware_interface::PositionJointInterface position_joint_interface_;
-  hardware_interface::PosVelJointInterface position_velocity_joint_interface_;
+  hardware_interface::PositionJointInterface position_joint_interface_;
+  // hardware_interface::PosVelJointInterface position_velocity_joint_interface_;
   // hardware_state_command_interfaces::DigitalInputStateInterface digital_input_state_interface_;
   // hardware_state_command_interfaces::DigitalOutputStateInterface digital_output_state_interface_;
   // hardware_state_command_interfaces::DigitalOutputCommandInterface digital_output_command_interface_;
