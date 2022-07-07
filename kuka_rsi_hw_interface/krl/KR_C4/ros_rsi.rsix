@@ -48,7 +48,7 @@
             <Input InIdx="15" OutObjId="Input_16" OutIdx="0" />
          </Inputs>
          <Parameters>
-            <Parameter IsRuntime="false" Name="ConfigFile" ParamId="0" ParamValue="vetron_rsi_ethernet.xml" />
+            <Parameter IsRuntime="false" Name="ConfigFile" ParamId="0" ParamValue="ros_rsi_ethernet.xml" />
             <Parameter Name="Timeout" ParamId="0" ParamValue="1" />
             <Parameter Name="Flag" ParamId="3" ParamValue="1" />
             <Parameter Name="Precision" ParamId="7" ParamValue="4" />
@@ -2666,7 +2666,7 @@
             <Input Name="In16" SourceObject="Input_16" SourcePort="Out1" Points="-993.92,1057.5;-981.92,1057.5;-953.92,1057.5;-953.92,7.5;-652,7.5;-636,7.5" />
          </Inputs>
          <Parameters>
-            <StringParameter Name="ConfigFile" Value="vetron_rsi_ethernet.xml" />
+            <StringParameter Name="ConfigFile" Value="ros_rsi_ethernet.xml" />
             <IntParameter Name="Timeout" Value="1" />
             <IntParameter Name="Flag" Value="1" />
             <IntParameter Name="Precision" Value="4" />

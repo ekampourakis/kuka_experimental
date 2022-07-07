@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="variant" default="" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find kuka_kr210_support)/urdf/kr210k27002.xacro' variant:=$(arg variant)" />
+</launch>

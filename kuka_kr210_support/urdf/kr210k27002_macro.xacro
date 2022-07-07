@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find kuka_resources)/urdf/common_materials.xacro"/>
+
+  <xacro:arg name="variant" default="" />
+  <xacro:property name="variant" value="$(arg variant)"/>
+
+  <xacro:macro name="kuka_kr210k27002" params="prefix">
+    <!-- links -->
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/base_link.dae"/>
+        </geometry>
+	<xacro:material_kuka_pedestal />
+      </visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/base_link.dae"/>
+        </geometry>
+      </visual>
+    </link>
+    <link name="${prefix}link_1">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_1.dae"/>
+        </geometry>
+	<xacro:material_kuka_orange />
+      </visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_1.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="${prefix}link_2">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_2.dae"/>
+        </geometry>
+	<xacro:material_kuka_orange />
+      </visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_2.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="${prefix}link_3">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_3.dae"/>
+        </geometry>
+	<xacro:material_kuka_orange />
+      </visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_3.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="${prefix}link_4">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_4.dae"/>
+        </geometry>
+	<xacro:material_kuka_orange />
+      </visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_4.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="${prefix}link_5">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_5.dae"/>
+        </geometry>
+	<xacro:material_kuka_orange />
+      </visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_5.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="${prefix}link_6">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_6.dae"/>
+        </geometry>
+	<xacro:material_kuka_ral_silver_gray />
+      </visual>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kuka_kr210_support/meshes/kr210k27002/visual/link_6.dae"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- This frame corresponds to the $FLANGE coordinate system in KUKA KRC controllers. -->
+    <link name="${prefix}tool0"/>
+
+    <!-- joints -->
+    <joint name="${prefix}joint_a1" type="revolute">
+      <origin xyz="0 0 0.2256" rpy="0 0 0"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}link_1"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="${radians(-185)}" upper="${radians(185)}" effort="0" velocity="${radians(120)}"/>
+    </joint>
+
+    <joint name="${prefix}joint_a2" type="revolute">
+      <origin xyz="0.33 0.019 0.4194" rpy="0 0 0"/>
+      <parent link="${prefix}link_1"/>
+      <child link="${prefix}link_2"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="${radians(-61)}" upper="${radians(90)}" effort="0" velocity="${radians(115)}"/>
+    </joint>
+
+    <joint name="${prefix}joint_a3" type="revolute">
+	    <origin xyz="0 -0.124 1.15" rpy="0 0 0"/>
+      <parent link="${prefix}link_2"/>
+      <child link="${prefix}link_3"/>
+      <axis xyz="0 1 0"/>
+	    <limit lower="${radians(-209)}" upper="${radians(65)}" effort="0" velocity="${radians(112)}"/>
+    </joint>
+
+    <joint name="${prefix}joint_a4" type="revolute">
+      <origin xyz="0.8685 0.105 0.115" rpy="0 0 0"/>
+      <parent link="${prefix}link_3"/>
+      <child link="${prefix}link_4"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${radians(-350)}" upper="${radians(350)}" effort="0" velocity="${radians(179)}"/>
+    </joint>
+
+    <joint name="${prefix}joint_a5" type="revolute">
+      <origin xyz="0.3515 0.0595 0.0" rpy="0 0 0"/>
+      <parent link="${prefix}link_4"/>
+      <child link="${prefix}link_5"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="${radians(-125)}" upper="${radians(125)}" effort="0" velocity="${radians(172)}"/>
+    </joint>
+
+    <joint name="${prefix}joint_a6" type="revolute">
+      <origin xyz="0.17 -0.0595 0.0" rpy="0 0 0"/>
+      <parent link="${prefix}link_5"/>
+      <child link="${prefix}link_6"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${radians(-350)}" upper="${radians(350)}" effort="0" velocity="${radians(220)}"/>
+    </joint>
+
+    <joint name="${prefix}link_6-tool0" type="fixed">
+      <parent link="${prefix}link_6"/>
+      <child link="${prefix}tool0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- rename 'Link1' to 'link_1', maintain bw-compatibility -->
+    <link name="${prefix}Link1"/>
+    <joint name="${prefix}Link1-link_1" type="fixed">
+      <parent link="${prefix}link_1"/>
+      <child link="${prefix}Link1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+</robot>
