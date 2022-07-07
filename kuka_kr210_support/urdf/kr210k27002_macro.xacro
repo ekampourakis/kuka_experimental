@@ -5,9 +5,18 @@
   <xacro:arg name="variant" default="" />
   <xacro:property name="variant" value="$(arg variant)"/>
 
+  <xacro:macro name="null_inertial">
+    <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+</xacro:macro>
+
   <xacro:macro name="kuka_kr210k27002" params="prefix">
     <!-- links -->
     <link name="${prefix}base_link">
+      <xacro:null_inertial/>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -22,7 +31,9 @@
         </geometry>
       </visual>
     </link>
+
     <link name="${prefix}link_1">
+      <xacro:null_inertial/>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -39,6 +50,7 @@
     </link>
 
     <link name="${prefix}link_2">
+      <xacro:null_inertial/>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -55,6 +67,7 @@
     </link>
 
     <link name="${prefix}link_3">
+      <xacro:null_inertial/>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -71,6 +84,7 @@
     </link>
 
     <link name="${prefix}link_4">
+      <xacro:null_inertial/>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -87,6 +101,7 @@
     </link>
 
     <link name="${prefix}link_5">
+      <xacro:null_inertial/>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -103,6 +118,7 @@
     </link>
 
     <link name="${prefix}link_6">
+      <xacro:null_inertial/>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
