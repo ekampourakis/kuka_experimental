@@ -65,41 +65,6 @@ KukaHardwareInterface::KukaHardwareInterface()
 
 KukaHardwareInterface::~KukaHardwareInterface() {}
 
-// void KukaHardwareInterface::read(const ros::Time& time, const ros::Duration& period) {
-//     if (first_time_) {
-//         start();
-//         first_time_ = false;
-//     }
-//     // in_buffer_.resize(1024);
-//     // recv is a blocking action if the buffer is empty
-//     if (server_->recv(in_buffer_) <= 0) {
-//         ROS_ERROR("Failed to read state from robot!");
-//     }
-
-//     rsi_state_ = RSIState(in_buffer_);
-//     for (std::size_t i = 0; i < n_dof_; ++i) {
-//         joint_position_[i] = DEG2RAD * rsi_state_.positions[i];
-//     }
-
-//     ipoc_ = rsi_state_.ipoc;
-//     if (rt_rsi_kuka_to_pc_pub_->trylock()) {
-//         rt_rsi_kuka_to_pc_pub_->msg_.time = time;
-//         rt_rsi_kuka_to_pc_pub_->msg_.period = period;
-//         for (std::size_t i = 0; i < n_dof_; ++i) {
-//             rt_rsi_kuka_to_pc_pub_->msg_.AIPos_joint_actual_position[i] = rsi_state_.positions[i];
-//             rt_rsi_kuka_to_pc_pub_->msg_.ASPos_joint_initial_position[i] =
-//                 rsi_state_.initial_positions[i];
-//             rt_rsi_kuka_to_pc_pub_->msg_.RIst_cartesian_actual_position[i] =
-//                 rsi_state_.cart_position[i];
-//             rt_rsi_kuka_to_pc_pub_->msg_.RSol_cartesian_initial_position[i] =
-//                 rsi_state_.initial_cart_position[i];
-//         }
-
-//         rt_rsi_kuka_to_pc_pub_->msg_.ipoc = rsi_state_.ipoc;
-//         rt_rsi_kuka_to_pc_pub_->unlockAndPublish();
-//     }
-// }
-
 bool KukaHardwareInterface::read() {
     in_buffer_.resize(1024);
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find industrial_robot_client)/config/robot_state_visualize.rviz" required="true" />
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find industrial_robot_client)/config/robot_state_visualize.rviz" required="true" /> -->
     <rosparam file="$(find kuka_rsi_hw_interface)/config/network.yaml" command="load"/>
 
-	<include file="$(find kuka_kr210_support)/launch/load_kr210k27002.launch"/>
+	<!-- <include file="$(find kuka_kr210_support)/launch/load_kr210k27002.launch"/> -->
     <!-- Start node without FT sensor -->
     <node name="kuka_hardware_interface" pkg="kuka_rsi_hw_interface"
       type="kuka_hardware_interface_node" respawn="false"
