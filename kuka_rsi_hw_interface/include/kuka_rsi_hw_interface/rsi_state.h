@@ -93,7 +93,9 @@ RSIState::RSIState(std::string xml_doc)
   TiXmlElement* AIPos_el = rob->FirstChildElement("AIPos");
   AIPos_el->Attribute("A1", &positions[0]);
   AIPos_el->Attribute("A2", &positions[1]);
+  positions[1] += 90.0;
   AIPos_el->Attribute("A3", &positions[2]);
+  positions[2] -= 90.0;
   AIPos_el->Attribute("A4", &positions[3]);
   AIPos_el->Attribute("A5", &positions[4]);
   AIPos_el->Attribute("A6", &positions[5]);
@@ -101,7 +103,9 @@ RSIState::RSIState(std::string xml_doc)
   TiXmlElement* ASPos_el = rob->FirstChildElement("ASPos");
   ASPos_el->Attribute("A1", &initial_positions[0]);
   ASPos_el->Attribute("A2", &initial_positions[1]);
+  initial_positions[1] += 90.0;
   ASPos_el->Attribute("A3", &initial_positions[2]);
+  initial_positions[2] -= 90.0;
   ASPos_el->Attribute("A4", &initial_positions[3]);
   ASPos_el->Attribute("A5", &initial_positions[4]);
   ASPos_el->Attribute("A6", &initial_positions[5]);
@@ -125,45 +129,46 @@ RSIState::RSIState(std::string xml_doc)
   // They should not start with number other wise the parser will have erro
   // so the buffer should not be like <In 01=".."/>
   // It should be lilke <In Ch01=".."/>
-  TiXmlElement* In_el = rob->FirstChildElement("In");
-  if (In_el)
-  {
-    bool success = true;
+  // TiXmlElement* In_el = rob->FirstChildElement("In");
+  // if (In_el)
+  // {
+  //   bool success = true;
 
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch01", &digital_inputs[0]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch02", &digital_inputs[1]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch03", &digital_inputs[2]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch04", &digital_inputs[3]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch05", &digital_inputs[4]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch06", &digital_inputs[5]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch07", &digital_inputs[6]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch08", &digital_inputs[7]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch09", &digital_inputs[8]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch10", &digital_inputs[9]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch11", &digital_inputs[10]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch12", &digital_inputs[11]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch13", &digital_inputs[12]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch14", &digital_inputs[13]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch15", &digital_inputs[14]);
-    success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch16", &digital_inputs[15]);
-    //    if (!success && !incompatible_xml)
-    //    {
-    //      std::cout << "Recieved RSI XML does not have 16 Inputs" << std::endl;
-    //      incompatible_xml = true;
-    //    }
-  }
-  else
-  {
-    //    if (!incompatible_xml)
-    //    {
-    //      std::cout << "Recieved RSI XML does not have In[xx]" << std::endl;
-    //      incompatible_xml = true;
-    //    }
-  }
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch01", &digital_inputs[0]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch02", &digital_inputs[1]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch03", &digital_inputs[2]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch04", &digital_inputs[3]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch05", &digital_inputs[4]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch06", &digital_inputs[5]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch07", &digital_inputs[6]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch08", &digital_inputs[7]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch09", &digital_inputs[8]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch10", &digital_inputs[9]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch11", &digital_inputs[10]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch12", &digital_inputs[11]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch13", &digital_inputs[12]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch14", &digital_inputs[13]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch15", &digital_inputs[14]);
+  //   success &= TIXML_SUCCESS == In_el->QueryIntAttribute("Ch16", &digital_inputs[15]);
+  //      if (!success && !incompatible_xml)
+  //      {
+  //        std::cout << "Recieved RSI XML does not have 16 Inputs" << std::endl;
+  //        incompatible_xml = true;
+  //      }
+  // }
+  // else
+  // {
+  //      if (!incompatible_xml)
+  //      {
+  //        std::cout << "Recieved RSI XML does not have In[xx]" << std::endl;
+  //        incompatible_xml = true;
+  //      }
+  // }
 
   // Get the IPOC timestamp
   TiXmlElement* ipoc_el = rob->FirstChildElement("IPOC");
   ipoc = std::stoull(ipoc_el->FirstChild()->Value());
+  // std::cout << "Recieved RSI" << std::endl;
 }
 
 }  // namespace kuka_rsi_hw_interface

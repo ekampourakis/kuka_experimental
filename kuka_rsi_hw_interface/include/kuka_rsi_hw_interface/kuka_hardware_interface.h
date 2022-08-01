@@ -56,8 +56,6 @@
 #include <hardware_interface/joint_command_interface.h>
 #include <hardware_interface/joint_state_interface.h>
 #include <hardware_interface/robot_hw.h>
-// #include <hardware_state_command_interfaces/digital_io_command_interface.h>
-// #include <hardware_state_command_interfaces/digital_io_state_interface.h>
 
 // Timers
 #include <chrono>
@@ -96,10 +94,6 @@ private:
   std::vector<double> joint_velocity_command_;
   std::vector<double> joint_effort_command_;
 
-  // std::vector<hardware_state_command_interfaces::DigitalIOStateHandle::State> digital_output_state_;
-  // std::vector<hardware_state_command_interfaces::DigitalIOStateHandle::State> digital_output_command_;
-  // std::vector<hardware_state_command_interfaces::DigitalIOStateHandle::State> digital_input_state_;
-
   // RSI
   RSIState rsi_state_;
   RSICommand rsi_command_;
@@ -129,9 +123,6 @@ private:
   hardware_interface::JointStateInterface joint_state_interface_;
   hardware_interface::PositionJointInterface position_joint_interface_;
   // hardware_interface::PosVelJointInterface position_velocity_joint_interface_;
-  // hardware_state_command_interfaces::DigitalInputStateInterface digital_input_state_interface_;
-  // hardware_state_command_interfaces::DigitalOutputStateInterface digital_output_state_interface_;
-  // hardware_state_command_interfaces::DigitalOutputCommandInterface digital_output_command_interface_;
   bool first_time_ = true;
 
 public:
@@ -141,7 +132,7 @@ public:
   void start();
   void configure();
   bool init(ros::NodeHandle& root_nh, ros::NodeHandle& robot_hw_nh);
-  void read(const ros::Time& time, const ros::Duration& period);
+  // void read(const ros::Time& time, const ros::Duration& period);
   void write(const ros::Time& time, const ros::Duration& period);
   bool read();
 };

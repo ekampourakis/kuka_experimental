@@ -166,7 +166,7 @@
       <origin xyz="0.8685 0.105 0.115" rpy="0 0 0"/>
       <parent link="${prefix}link_3"/>
       <child link="${prefix}link_4"/>
-      <axis xyz="0 0 1"/>
+      <axis xyz="-1 0 0"/>
       <limit lower="${radians(-350)}" upper="${radians(350)}" effort="0" velocity="${radians(179)}"/>
     </joint>
 
@@ -182,7 +182,7 @@
       <origin xyz="0.17 -0.0595 0.0" rpy="0 0 0"/>
       <parent link="${prefix}link_5"/>
       <child link="${prefix}link_6"/>
-      <axis xyz="0 0 1"/>
+      <axis xyz="-1 0 0"/>
       <limit lower="${radians(-350)}" upper="${radians(350)}" effort="0" velocity="${radians(220)}"/>
     </joint>
 
