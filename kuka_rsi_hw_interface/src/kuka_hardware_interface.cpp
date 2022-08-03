@@ -137,6 +137,10 @@ void KukaHardwareInterface::start() {
         rsi_initial_joint_positions_[i] = rsi_state_.initial_positions[i];
     }
     ipoc_ = rsi_state_.ipoc;
+    // reset the corrections
+    for (std::size_t i = 0; i < n_dof_; ++i) {
+        rsi_joint_position_corrections_[i] = 0.0;
+    }
     out_buffer_ = RSICommand(rsi_joint_position_corrections_, ipoc_).xml_doc;
     server_->send(out_buffer_);
     // Set receive timeout to 1 second
@@ -217,7 +221,7 @@ bool KukaHardwareInterface::init(ros::NodeHandle& root_nh, ros::NodeHandle& robo
 
     configure();
     ROS_INFO_STREAM_NAMED("hardware_interface", "Loaded kuka_rsi_hardware_interface");
-    start();
+    // start();
     return true;
 }
 }  // namespace kuka_rsi_hw_interface
